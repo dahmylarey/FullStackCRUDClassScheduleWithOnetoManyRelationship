@@ -1,0 +1,40 @@
+﻿@model CLass
+
+@{
+    // display the name of the page (Add/Edith) currently in use by the user depending on which method in use 
+    ViewBag.Title = $"{ViewBag.Operation} Class";
+}
+
+<h1 class="display-4">@ViewBag.Operation Class</h1>
+
+<form asp-action="Add" asp-controller="Class" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Class Name</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Number" class="form-label">Class Name</label>
+        <input asp-for="Number" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Teacher" class="form-label">Class Name</label>
+        <select asp-for="TeacherId" class="form-select" asp-items="@(
+            new SelectList(ViewBag.Teachers, "TeachersId", "FullName"))"></select>
+    </div>>
+    <div class="mb-3">
+        <label asp-for="Day" class="form-label">Class Name</label>
+        <select asp-for="DayId" class="form-select" asp-items="@(
+            new SelectList(ViewBag.Days, "DayId", "Name"))"></select>
+    </div>>
+    <div class="mb-3">
+        <label asp-for="MilitaryTime" class="form-label">Class Name</label>
+        <input asp-for="MilitaryTime" class="form-control" />
+    </div>
+
+    <input type="hidden" asp-for="ClassId" />
+
+    <button type="submit" class="btn-dark">@ViewBag.Operation</button>
+    <a asp-action="Index" asp-controller="btn btn-outline-dark">Cancel</a>
+</form>

@@ -12,7 +12,7 @@ namespace FullStackCRUDAppWithOnetoManyRelationship.Models.Configuration
                 .WithMany(t => t.Classes)
                 .OnDelete(DeleteBehavior.Restrict);//cant delete if teacher has classes
 
-            //Teacher class
+            //Teacher classes should
             entity.HasOne(c => c.Day)
                             .WithMany(d => d.Classes)
                             .OnDelete(DeleteBehavior.Restrict);//cant delete if day has classes

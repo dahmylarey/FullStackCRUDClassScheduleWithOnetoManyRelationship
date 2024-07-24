@@ -1,0 +1,18 @@
+﻿@model Teacher
+@{
+    ViewBag.Title = "Add Teacher";
+}
+
+<h1 class="display-4">Add Teacher</h1>
+
+<form asp-action="Add" asp-controller="Teacher" method="post">
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<div class="mb-3">
+    <label asp-for="LastName" class="form-label"></label>
+    <input asp-for="LastName" class="form-control" />
+</div>
+
+<button type="submit" class="btn-dark">Save</button>
+<a asp-action="Index" asp-controller="Teacher" class="btn-outline-dark">Cancel</a>
+</form>
