@@ -50,6 +50,7 @@ namespace FullStackCRUDAppWithOnetoManyRelationship.Controllers
         [HttpGet]
         public ViewResult Delete(int id) => View(teachers);
 
+        //Delete a teacher
         [HttpPost]
         public RedirectToActionResult Delete(Teacher teacher)
         {

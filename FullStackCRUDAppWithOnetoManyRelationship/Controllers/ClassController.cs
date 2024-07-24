@@ -53,7 +53,38 @@ namespace FullStackCRUDAppWithOnetoManyRelationship.Controllers
             return View();
         }
 
+        //Edit Class
+
+        [HttpGet]
+        public ViewResult Edit(int id)
+        {
+            this.LoadViewBag("Edith");
+            var c = this.GetClass(id);
+            return View("AddEdith", c);
+        }
+
+
+        //Delete a Class
+        [HttpGet]
+        public ViewResult Delete(int id)
+        {
+            var c = this.GetClass(id);
+            return View(c);
+
+        }
+
+
         //helper method
+        private Class GetClass(int id)
+        {
+            var classOptions = new QueryOptions<Class>
+            {
+                Includes = "Teacher, Day"
+            };
+            return Classes.Get(classOptions) ?? new Class();
+        }
+
+
         private void LoadViewBag(string operation)
         {
             ViewBag.Days = days.List(new QueryOptions<Day>

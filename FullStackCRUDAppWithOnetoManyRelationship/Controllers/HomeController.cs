@@ -52,7 +52,7 @@ namespace FullStackCRUDAppWithOnetoManyRelationship.Controllers
             ViewBag.Id = id;
             ViewBag.Days = dayList;
 
-            return View(classList);
+            return View();
         }
 
 
