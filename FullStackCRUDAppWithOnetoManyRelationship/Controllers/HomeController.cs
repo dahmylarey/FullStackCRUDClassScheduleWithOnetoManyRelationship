@@ -34,7 +34,7 @@ namespace FullStackCRUDAppWithOnetoManyRelationship.Controllers
 
             if (id == 0)
             {
-                classOptions.OrderBy = c => c.DayId == id;
+                classOptions.OrderBy = c => c.DayId;
                 classOptions.ThenOrderBy = c => c.MilitaryTime;
             }
             else
@@ -49,10 +49,10 @@ namespace FullStackCRUDAppWithOnetoManyRelationship.Controllers
 
 
             //send data to the view
-            ViewBag.id = id;
-            ViewBag.days = dayList;
+            ViewBag.Id = id;
+            ViewBag.Days = dayList;
 
-            return View();
+            return View(classList);
         }
 
 
